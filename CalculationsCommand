@@ -1,0 +1,33 @@
+package commands;
+
+import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
+import net.dv8tion.jda.api.hooks.ListenerAdapter;
+
+public class calculate extends ListenerAdapter {
+
+    @Override
+    public void onGuildMessageReceived(GuildMessageReceivedEvent e){
+
+
+       // if (e.getMessage().getContentRaw().equalsIgnoreCase("calc")){
+       //     e.getChannel().sendMessage("wow").queue();
+       // }
+
+
+        String[] message = e.getMessage().getContentRaw().split(" ");
+        //e.getChannel().sendMessage(message[0]).queue();
+        int num1 = Integer.parseInt(message[2]);
+        int num2 = Integer.parseInt(message[3]);
+
+        if (message[0].equalsIgnoreCase("!calculate")){
+            if (message[1].equalsIgnoreCase("add")) {
+                e.getChannel().sendMessage(Integer.toString(num1 + num2)).queue();
+                //int num = Integer.parseInt(message[1]) + Integer.parseInt(message[3]);
+            }
+            else if (message[1].equalsIgnoreCase("subtract")){
+                e.getChannel().sendMessage(Integer.toString(num1 - num2)).queue();
+            }
+
+        }
+    }
+}
