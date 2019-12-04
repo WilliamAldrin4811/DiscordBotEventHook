@@ -1,0 +1,21 @@
+import commands.Embed;
+import commands.calculate;
+import events.categoryCreate;
+import events.helloEvent;
+import net.dv8tion.jda.api.JDA;
+import net.dv8tion.jda.api.JDABuilder;
+//import net.dv8tion.jda.core.JDA;
+//import net.dv8tion.jda.core.JDABuilder;
+
+public class botTwo2 {
+
+    public static void main(String args[]) throws Exception {
+
+        JDA jda = new JDABuilder("NjQ2NzUyODMyMjIxMDg1NzA3.XdVtuA.0uxwUVadSRfIyqZsuglx8z8pNYI").build();
+
+        //jda.addEventListener(new helloEvent());
+        //jda.addEventListener(new categoryCreate());
+        //jda.addEventListener(new calculate());
+        jda.addEventListener(new Embed());
+    }
+}
